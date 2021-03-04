@@ -29,7 +29,7 @@
                                 <div class="form-group">
                                   <label> User Type</label>
                                    <select name="usertype" class="form-control">
-                                       <option value="admin">Admin</option>
+                                       <option value="userhost">UserHost</option>
                                        <option value="candidate">Candidate</option>
                                        <option value="">None</option>
                                    </select>
