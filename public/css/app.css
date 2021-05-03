@@ -10065,6 +10065,7 @@ raw.h1{
 footer{
   position: relative;
   bottom: 0px;
+  top: 0px;
   width: 100%;
   background: #111;
 }
@@ -10210,4 +10211,11 @@ footer{
   .main-content .box{
     margin: 5px 0;
   }
+}
+.btn{
+  padding: 0% 0% 0% 0%;
+}
+
+.navbar-nav{
+  margin-bottom:10px ;
 }

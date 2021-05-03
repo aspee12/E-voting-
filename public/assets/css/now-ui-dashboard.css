@@ -4206,7 +4206,7 @@ Created using IcoMoon - icomoon.io
   height: 260px;
   padding-top: 80px;
   padding-bottom: 45px;
-  background: #141E30;
+  background: #1db425;
   /* fallback for old browsers */
   background: -webkit-gradient(linear, left top, right top, from(#0c2646), color-stop(60%, #204065), to(#2a5788));
   background: linear-gradient(to right, #0c2646 0%, #204065 60%, #2a5788 100%);
@@ -4214,13 +4214,11 @@ Created using IcoMoon - icomoon.io
   overflow: hidden;
 }
 
-.panel-header .header .title {
-  color: #FFFFFF;
-}
+
 
 .panel-header .header .category {
   max-width: 600px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(84, 201, 99, 0.781);
   margin: 0 auto;
   font-size: 13px;
 }

@@ -29,7 +29,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::login;
+    protected $redirectTo ='/login';
 
     /**
      * Create a new controller instance.
@@ -50,11 +51,16 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:10','min:8'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'name' => ['required', 'min:5', 'max:15'],
+            'phone' => ['required', 'string', 'max:8'],
+            'email' => 'required|email|regex:/(.gcit)@rub.edu.bt/i|unique:users',
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+
+        if ($validator -> fails()){
+            Session::flaash('error', $validator->message()->first());
+            return redirect()->back()->withInput()->withErrors($validator);
+        }
     }
 
     /**

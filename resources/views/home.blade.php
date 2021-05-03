@@ -1,17 +1,16 @@
-@extends('layouts.app')
+@extends('includes.master')
 @section('content')
-{{-- Election Creation button --}}
-<div class="button" href="#collapseExample" data-toggle="tooltip" data-placement="top" title="Create Election"
-    Tooltip on toprole="button" aria-expanded="false" aria-controls="collapseExample">
-<button type="button" class="btn btn-outline-secondary"id="myBtn" onclick="myFunction()" value="/role">Creat Election</button>
-</div>
-{{-- end of button tag --}}
-
+ {{-- Election Creation button --}}
+{{--  
+ <button type="button" class="btn btn-outline-secondary"id="myBtn" onclick="myFunction()" href="#" data-toggle="tooltip" data-placement="top" title="Create Election"
+ Tooltip on toprole="button" aria-expanded="false" aria-controls="collapseExample" value="button">Creat Election</button>
+ </a> --}}
+ {{-- end of button tag --}}
 {{-- Election Cretion Form --}}
-<div class="navbar" id="demo">
+{{-- <div class="navbar" id="demo">
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/details">Details</a></li>
+        <li class="breadcrumb-item"><a href="election/Details">Details</a></li>
         <li class="breadcrumb-item"><a href="#">Ballot</a></li> 
         <li class="breadcrumb-item"><a href="#">Notice</a></li>
         <li class="breadcrumb-item"><a href="#">Voter</a></li>
@@ -19,14 +18,14 @@
         <li class="breadcrumb-item"><a href="#">Result</a></li>
     </ol>
   </nav>
-</div>
+</div> --}}
 {{-- end of election form --}}
-<script>
+{{-- <script>
     function myFunction(){
       var x = document.getElementById("myBtn").value;
       document.getElementById("demo").innerHTML = x;
     }
-</script>
+</script> --}}
 
   
   
@@ -51,7 +50,6 @@
             </div>
         </div> --}}
 
-<h6>hello world</h6>
 @endsection 
 
 

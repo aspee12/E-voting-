@@ -1,12 +1,57 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    h1{
+        position: absolute;
+        margin: 0;
+        font-size: 60px;
+        color: #fff;
+        z-index: 2;
+        line-height: 2;
+    }
+    .banner{
+        position: relative;
+        height: 300px;
+        background-image: url('/img/2.jpg');
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .btn-block{
+        margin-top: 10px;
+        text-align: center;
+    }
+    button{
+        width: 100px;
+        height: 35px;
+        padding: 20px;
+        border: none;
+        border-radius: 5px;
+        background: #669999;
+        font-size: 18px;
+        color: #fff;
+        cursor: pointer;
+    }
+    button:hover{
+        background: #a3c2c2;
+    }
+    body,div,form,input,select,textarea,label,p{
+        font-family: Roboto, Arial, sans-serif;
+        font-size: 16px;
+    }
+</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card text-dark">
-                <div class="card-header">{{ __('Login') }}</div>
-
+                <div class="card-header">
+                    <div class="banner">
+                        <h1>{{ __('Login') }}</h1>
+                    </div>
+                </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -50,18 +95,21 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="form-group row mb-0 text-dark">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
+                                    <a class="btn btn-link" href="/register"> Register Now!</a>
+                                <br>
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
+                                <div class="btn-block">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Login') }}
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </form>

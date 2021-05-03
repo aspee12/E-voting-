@@ -22,17 +22,37 @@ class DashboardController extends Controller
 
     public function registerupdate(Request $request,$id){
         $users= User::find($id);
-        $users->name=$request->input('name');
-        $users->usertype=$request->input('usertype');
+        if($users->usertype!='admin'){
+            $users->name=$request->input('name');
+            $users->usertype=$request->input('usertype');
+        }
+        else{
+            
+            $users->name=$request->input('name');
+            $users->phone=$request->input('phone');
+            $users->email=$request->input('email');
+            // $users->usertype=$request->input('usertype');
+
+        }
         $users->update();
 
-        return redirect('/role')->with('status','Your Data has been Updated');
+        return redirect('/role')->with('success','Updated Successfully');
     }
+    // public function adminupdate(Request $request,$id){
+    //     $users= User::find($id);
+    //     $users->name=$request->input('name');
+    //      $users->phone=$request->input('phone');
+    //      $users->email=$request->input('email');
+    //      $users->usertype=$request->input('usertype');
+    //     $users->update();
+
+    //     return redirect('/role')->with('success','Updated Successfully');
+    // }
 
     public function registerdelete($id){
         $users = User::findOrFail($id);
         $users->delete();
-        return redirect('/role')->with('status','Your Data has beed Updated');
+        return redirect('/role') ->with('success','Deleted Successfully');
     }
 
     

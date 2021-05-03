@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
+use Illuminate\Support\Facades\Auth;
 
 class VerificationController extends Controller
 {
@@ -33,6 +34,20 @@ class VerificationController extends Controller
      *
      * @return void
      */
+    protected function redirectTo(){
+        if(Auth::user()->usertype == 'admin'){
+
+            return 'home';
+        }
+       else if(Auth::user()->usertype == 'voter'){
+
+            return 'voterhome';
+        }
+    else{
+        return 'error';
+    }
+    }
+
     public function __construct()
     {
         $this->middleware('auth');

@@ -17,7 +17,7 @@ class AdminRegisterController extends Controller
         $request->validate([
                 'name'              =>      'required|string|max:20',
                 'email'             =>      'required|email|unique:users,email',
-                'phone'             =>      'required|numeric|max=8',
+                'phone'             =>      'required|numeric',
                 'usertype'          =>      'required|string',
                 'password'          =>      'required|alpha_num|min:6',
                 'confirm_password'  =>      'required|same:password',
@@ -28,7 +28,7 @@ class AdminRegisterController extends Controller
             "name"          =>          $request->name,
             "email"         =>          $request->email,
             "phone"         =>          $request->phone,
-            "usertype"      =>          $request->user,
+            "usertype"      =>          $request->usertype,
             "password"      =>          Hash::make($request->password)
         ]);
         if(is_null($user)){

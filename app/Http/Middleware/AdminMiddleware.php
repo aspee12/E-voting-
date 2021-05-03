@@ -22,7 +22,7 @@ class AdminMiddleware
             return $next($request);
         }
         else{
-            return redirect('/main')-with('status','You are Not Allowed To Admin Dashboard');
+            return redirect('/main')->with('status','You are Not Allowed To Admin Dashboard');
         }
         
     }
