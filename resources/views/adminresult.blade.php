@@ -21,7 +21,7 @@
                                                 <strong>{{$candidate->name}}</strong> 
                                                 <strong> ({{$candidate->enrol}})</strong>
                                             </div>
-                                             <br><img src="{{asset('uploads/candidate/'.$candidate->image)}}" class="ml-5" height="220" width="220"/>
+                                             <br><img src="{{asset('uploads/candidate/'.$candidate->image)}}" class="ml-5 rounded-circle" height="220" width="220"/>
                                             </div> <br>
                                         <div class="form-check ml-5">
                                                 <b>Post: {{$candidate->position->candidate_post}}</b>
@@ -45,7 +45,12 @@
                         </tr>
                         </tbody>
                     </table>
+                    <form action="{{url('/delcare')}}" method="POST">
+                        
+                        <button  type="submit" class="btn submit btn-success" required>Make it public</button>
+                    </form>
                 </div>
+                
             </div>
         </div>
     </div>

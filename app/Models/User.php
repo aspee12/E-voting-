@@ -42,4 +42,10 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function voted($position_id) {
+        $user_id = $this->id;
+        // return false;
+        $var = Voted::where("users_id", "=", $user_id)->where("position_id", "=", $position_id)->get();
+        return !(count($var) > 0 ? false : true); 
+    }
 }

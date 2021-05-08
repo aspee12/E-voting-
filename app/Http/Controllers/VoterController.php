@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 use App\Models\Candidate;
 use App\Models\Position;
+use App\Models\Voted;
+
 
 class VoterController extends Controller
 {
@@ -31,6 +35,11 @@ class VoterController extends Controller
             
         }
         $candidate->save();
+        $voted = new Voted;
+        $voted->users_id = Auth::user()->id;
+        $voted->position_id = $request->input('position_id');
+        $voted->save();
+
         return redirect()->route('succ.vote')->with('success','Your Vote is Successfully Casted! Please Complete Your Vote.');; 
     }
     public function votes(Request $request)
@@ -39,6 +48,10 @@ class VoterController extends Controller
         $candidate = Candidate::findOrFail($request->candidate_id);
         $candidate->vote_count = $candidate->vote_count + 1;
         $candidate->save();
+        $voted = new Voted;
+        $voted->users_id = Auth::user()->id;
+        $voted->position_id = $request->input('position_id');
+        $voted->save();
         return redirect()->route('succ.vote')->with('success','Your Vote is Successfully Casted!Please Complete Your Vote.');;
     }
 }

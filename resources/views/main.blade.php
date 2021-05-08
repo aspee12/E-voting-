@@ -100,8 +100,9 @@
         {{-- end features --}}
 
         {{-- Aboutus --}}
+        <br>
         <div class="card m-1" style="width: 18rem;">
-          <img class="card-img-top" src="/img/12180045.JPG" alt="Card image cap">
+          <img class="card-img-top rounded-circle" src="/img/12180045.JPG" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">Sonam Phuntsho </h5>
             <p class="card-text">Developer</p>
@@ -109,7 +110,7 @@
   
         </div>
         <div class="card m-1" style="width: 18rem;">
-          <img class="card-img-top" src="/img/12180053.JPG" alt="Card image cap">
+          <img class="card-img-top rounded-circle" src="/img/12180053.JPG" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">Tashi Wangmo</h5>
             <p class="card-text">Reseacher</p>
@@ -117,7 +118,7 @@
   
         </div>
         <div class="card m-1" style="width: 18rem;">
-          <img class="card-img-top" src="/img/12180059.JPG" alt="Card image cap">
+          <img class="card-img-top rounded-circle" src="/img/12180059.JPG" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">Tenzin Lhamo</h5>
             <p class="card-text">Designer</p>
@@ -125,7 +126,7 @@
   
         </div>
         <div class="card m-1" style="width: 18rem;">
-          <img class="card-img-top" src="/img/12180046.JPG" alt="Card image cap">
+          <img class="card-img-top rounded-circle" src="/img/12180046.JPG" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">Sonam Jamtsho</h5>
             <p class="card-text">Co-Coder</p>

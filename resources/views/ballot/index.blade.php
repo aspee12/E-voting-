@@ -22,6 +22,12 @@
           <button id="close-btn" type="button" class="border-none btn btn-sm float-right my-auto pt-0">x</button>
       </div>
   @endif
+  @if ($message = Session::get('fail'))
+      <div id="alert" class="alert bg-danger alert-danger">
+          {{ $message }}
+          <button id="close-btn" type="button" class="border-none btn btn-sm float-right my-auto pt-0">x</button>
+      </div>
+  @endif
   <script>
     $(document).ready(function(){
       $('#close-btn').click(function(){
@@ -74,9 +80,11 @@
       <tr>
           <td>{{ $candidate->enrol }}</td>
           <td>{{ $candidate->name }}</td>
-          <td><img src="{{asset('uploads/candidate/'.$candidate->image)}}" height="100" width="100"/></td>
+          <td><img src="{{asset('uploads/candidate/'.$candidate->image)}}"  class="rounded-circle" height="100" width="100"/></td>
           <td>{{ $candidate->detail }}</td>
-          <td><b>{{ $candidate->position->candidate_post }}</b></td>
+          <td><b>{{ $candidate->position->candidate_post }}</b>
+            <a href="{{route('menifesto.create')}}">View Manifestos</a>
+          </td>
           <td>
   
                   <a class="btn btn-info" href="{{ route('ballot.show',$candidate->id) }}">View</a>

@@ -32,7 +32,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Image:</strong><br>
-                <img src="{{asset('uploads/candidate/'.$candidate->image)}}" height="250" width="250"/>
+                <img src="{{asset('uploads/candidate/'.$candidate->image)}}"  class="rounded-circle" height="250" width="250"/>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

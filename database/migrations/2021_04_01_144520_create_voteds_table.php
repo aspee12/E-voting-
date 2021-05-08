@@ -17,8 +17,8 @@ class CreateVotedsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('position_id');
             $table->foreign('position_id')->references('id')->on('positions');
-            $table->unsignedBigInteger('voters_id');
-            $table->foreign('voters_id')->references('id')->on('users');
+            $table->unsignedBigInteger('users_id');
+            $table->foreign('users_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

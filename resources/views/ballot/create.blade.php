@@ -59,6 +59,27 @@
                 </div>
             </div>
             <br><br>
+
+            <div class="pull-left">
+                <h2>Upload Candidate Manifesto Here!</h2>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Manifesto Description:</strong>
+                    <textarea class="form-control border" style="height:150px" name="description" placeholder="Detail"></textarea>
+                </div>
+            </div>
+
+            <div class="col-xs12 col-sm-12 col-md-12">
+                <div class="input-group">
+                    <div class="custom-file">
+                        <strong>Upload Manifesto Videos: </strong>
+                         <input id="file" type="file" name="video">
+                    </div>
+                </div>
+            </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Select Post of Candidate</strong>

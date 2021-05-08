@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
    
 use App\Models\Candidate;
 use App\Models\Position;
+use App\Models\Menifesto;
 
 use Illuminate\Http\Request;
   
@@ -38,7 +39,8 @@ class CandidateController extends Controller
     public function create()
     {
         $positions =Position::all();
-        return view('ballot.create')->with('positions', $positions);
+        $menifestos=Menifesto::all();
+        return view('ballot.create')->with('positions', $positions)->with('menifestos',$menifestos);
     }
     
     /**
@@ -54,16 +56,28 @@ class CandidateController extends Controller
             'name' => 'required',
             'image'=> 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048000',
             'detail' => 'required',
+            'video'=> 'mimes:mp4,mov,ogg,m3u8,avi  | max:200000',
+            'description' => 'required',
         ]);
     
+        // try {
+        //     $_menifesto = Menifesto::findOrFail($request->input('enrol'));
+        // } catch (exception $e) {
+        //     return redirect()->route('ballot.index')
+        // ->with('fail','Candidate already exist.');
+        // }
+        // return redirect()->route('menifesto.create')->with('success','Menifesto Uploaded  Successfully');
         // Candidate::create($request->all());
-       
+        
         $store = new  Candidate;
+        $store->id =  $request->input('enrol');
         $store->enrol = $request->input('enrol');
         $store->name = $request->input('name');
         $store->detail = $request->input('detail');
         $store->position_id = $request->input('position_id');
-
+        // $store->menifesto_id = $request->input('enrol');
+        
+        
         if($request->hasfile('image')){
             $file = $request->file('image');
             $extension= $file->getClientOriginalExtension();
@@ -75,13 +89,32 @@ class CandidateController extends Controller
             return $request;
             $store->image='';
         }
-    
+        
         $store->save();
-     
+        
+        $menifesto = new Menifesto;
+        $menifesto->candidate_id = $request->input('enrol'); 
+        $menifesto->name = $request->name;
+        $menifesto->description =$request->description;
+        // dd($request->input('position_id'));
+        $menifesto->post = $request->input('position_id');
+        if($request->hasfile('video')){
+            $file = $request->file('video');
+            $extension= $file->getClientOriginalExtension();
+            $filename = time(). '.'.$extension;
+            $file -> move('uploads/menifesto/',$filename);
+            $menifesto -> video=$filename;
+        }
+        else{
+            return $request;
+            $menifesto->video='';
+        }
+        // $menifesto->save();
+        $menifesto->save();
         return redirect()->route('ballot.index')
-                        ->with('success','Candidate Added successfully.');
+        ->with('success','Candidate Added successfully.');
     }
-     
+    
     /**
      * Display the specified resource.
      *
@@ -90,12 +123,12 @@ class CandidateController extends Controller
      */
     public function show($id)
     {
-
+        
         // return view('ballot.show',compact('candidate'));
         $candidate = Candidate::findOrFail($id);
         return view('ballot.show')->with('candidate',  $candidate);
     } 
-     
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -141,8 +174,8 @@ class CandidateController extends Controller
         $store->name = $request->input('name');
         $store->detail = $request->input('detail');
         $store->position_id = $request->input('position_id');
+        // $store->menifesto_id = $request->input('enrol');
         $store->save();
-
         // $candidate->update($request->all());
     
         return redirect()->route('ballot.index')
@@ -159,7 +192,8 @@ class CandidateController extends Controller
     {
         $candidate= Candidate::find($id);
         if($candidate!=null){
-
+            // $menifesto = Menifesto::findOrFail($candidate->enrol);
+            // $menifesto->delete();
             $candidate->delete();
             return redirect()->route('ballot.index')
                             ->with('success','Candidate deleted successfully');

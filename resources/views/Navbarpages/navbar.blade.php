@@ -19,7 +19,7 @@
                                <a href="/voterhome"class="text-sm btn btn-primary mt-0 p-1" style="border-radius: 20px 20px">Dashboard</a>
                             @endif
                             @if(Auth::user()->usertype == 'admin')
-                                <a href="/home"class="text-sm btn btn-primary mt-0 p-1" style="border-radius: 20px 20px">Dashboard</a>
+                                <a href="/listcandidate"class="text-sm btn btn-primary mt-0 p-1" style="border-radius: 20px 20px">Dashboard</a>
                             @endif
                             @else
                                 <a href="{{ route('login') }}" class="text-sm btn p-1 mr-2 btn-primary"  style="border-radius: 20px 20px">Log in</a>

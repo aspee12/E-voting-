@@ -20,7 +20,7 @@
             <div class="pull-left mb-2">
                 <form action="{{url('/post')}}" method="POST">
                     @csrf
-                    <input type="text" name="candidate_post">
+                    <input type="text" name="candidate_post" required>
                     <button type="submit" class="fa fa-calendar-plus btn btn-info"> Add Position</button>
                 </form>
                 

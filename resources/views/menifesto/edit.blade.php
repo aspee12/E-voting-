@@ -16,6 +16,14 @@
             </div>
         @endif
             <hr>
+            <div class="row">
+                <div class="col-lg-12 margin-tb">
+                    <br><br>
+                    <div class="float-left">
+                        <a class="btn btn-info" href="{{ route('menifesto.create') }}"> Back</a>
+                    </div>
+                </div>
+            </div>
             <div class="pull-left mb-2">
                 <form action="{{ route('menifesto.update',$menifestos->id) }}" method="POST">
                     @csrf
@@ -27,13 +35,13 @@
                         </div>
                     </div>
                     <div class="col-xs12 col-sm-12 col-md-12">
-                        <div class="input-group">
+                        <div class="form-group">
                             <div class="custom-file">
-                                <strong>Upload Videos: </strong>
+                                <strong>Upload Videos:</strong>
                                  <input id="file" type="file" name="video">
                             </div>
-                            <div class="container mt-3">
-                                <video width="260" height="220" controls>
+                            <div class="container mt-5">
+                                <video width="360" height="220" controls>
                                     <source src="{{asset('uploads/menifesto/'.$menifestos->video)}}" type="video/mp4">
                                     Your browser does not support the video tag.
                                   </video>
@@ -44,6 +52,18 @@
                         <div class="form-group">
                             <strong>Description:</strong>
                             <textarea class="form-control border" style="height:150px" name="description" value="{{$menifestos->description}}"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong>Select Post of Candidate:</strong>
+                                <select id="Select" name="position_id" class="form-select form-control">
+                                     <option vlaue=""></option> 
+                                     @foreach ($positions as $position)
+                                        
+                                     <option value="{{ $position->id }}">{{ $position->candidate_post }}</option>
+                                     @endforeach
+                                </select>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-success">Update</button>

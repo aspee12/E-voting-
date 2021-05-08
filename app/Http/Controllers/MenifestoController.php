@@ -26,8 +26,11 @@ class MenifestoController extends Controller
     public function create()
     {
         
-        $menifestos= Menifesto::all();
-        return view('menifesto.create')->with('menifestos',$menifestos);
+        $positions=Position::all();
+        $menifestos=Menifesto::all();
+        // dd(['position' => $positions,'meni' => $menifestos]);
+        // dd($menifestos);
+        return view('menifesto.create')->with('positions',$positions)->with('menifestos',$menifestos);
     }
 
     /**
@@ -71,8 +74,9 @@ class MenifestoController extends Controller
      */
     public function show($id)
     {
-        // $menifestos =Menifesto::all();
-        // return view('menifesto.view')->with('menifestos', $menifestos);
+        $menifestos =Menifesto::all();
+        $positions = Position::all();
+        return view('menifesto.view')->with('menifestos', $menifestos)->with('positions',$positions);
     }
 
     /**
@@ -84,7 +88,8 @@ class MenifestoController extends Controller
     public function edit($id)
     {
         $menifestos = Menifesto::findOrFail($id);
-        return view('menifesto.edit')->with('menifestos',  $menifestos);
+        $positions = Position::all();
+        return view('menifesto.edit')->with('positions', $positions)->with('menifestos',  $menifestos);
     }
 
     /**
@@ -97,9 +102,9 @@ class MenifestoController extends Controller
     public function update(Request $request, $id)
     {
         $menifesto = Menifesto::findOrFail($id);
-        $menifesto->name = $request->name;
-        $menifesto->description =$request->description;
-        $menifesto->post = $request->post;
+        $menifesto->name = $request->input('name');
+        $menifesto->description =$request->input('description');
+        $menifesto->post = $request->input('position_id');
         if($request->hasfile('video')){
             $file = $request->file('video');
             $extension= $file->getClientOriginalExtension();

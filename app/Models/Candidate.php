@@ -19,6 +19,6 @@ class Candidate extends Model
     }
     public function menifesto()
     {
-        return $this->belongsTo(Menifesto::class);
+        return $this->hasOne(Menifesto::class);
     }
 }

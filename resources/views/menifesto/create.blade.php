@@ -4,9 +4,9 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <br><br>
-            <div class="pull-left">
+            {{-- <div class="pull-left">
                 <h2>Upload Candidate Menifesto Here!</h2>
-            </div>
+            </div> --}}
             <br>
             <br>
             @if ($message = Session::get('success'))
@@ -15,9 +15,17 @@
                 <button id="close-btn" type="button" class="border-none btn btn-sm float-right my-auto pt-0">x</button>
             </div>
             @endif
+              <div class="row">
+        <div class="col-lg-12 margin-tb">
+            <br><br>
+            <div class="float-right">
+                <a class="btn btn-info" href="{{ route('ballot.index') }}"> Back</a>
+            </div>
+        </div>
+    </div>
             <br>
             <hr>
-            <div class="pull-left mb-2">
+            {{-- <div class="pull-left mb-2">
                 <form action="{{route('menifesto.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -38,8 +46,8 @@
                         <div class="form-group">
                             <strong>Select Post of Candidate</strong>
                                 <select id="Select" name="post" class="form-select form-control">
-                                    @foreach ($menifestos as $position)        
-                                    <option value="{{ $position->id }}">{{ $position->post }}</option>
+                                    @foreach ($positions as $position)        
+                                    <option value="{{ $position->id }}">{{ $position->candidate_post }}</option>
                                     @endforeach
                                 </select>
                         </div>
@@ -56,7 +64,7 @@
                     </div>
                 </form>
                
-            </div>
+            </div> --}}
             <table class="table">
                 <thead>
                     <tr class="bg-light">
@@ -79,7 +87,7 @@
                     </td>
                     <td>
                             <div class="container mt-3">
-                                <video width="260" height="220" controls>
+                                <video width="350" height="220" controls>
                                     <source src="{{asset('uploads/menifesto/'.$menifesto->video)}}" type="video/mp4">
                                     Your browser does not support the video tag.
                                   </video>
@@ -96,11 +104,11 @@
                     <td>
                         <form action="{{ route('menifesto.destroy',$menifesto->id) }}" method="POST">
                             
-                            <a class="btn btn-primary" href="{{ route('menifesto.edit',$menifesto->id) }}">Edit</a>  
-                            @csrf
+                            <a class="btn btn-primary" href="{{ route('menifesto.edit',$menifesto->id) }}">Edit</a><br><br>  
+                            {{-- @csrf
                             @method('DELETE')
                             
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">Delete</button> --}}
                         </form>
                     </td>
                 </tr>

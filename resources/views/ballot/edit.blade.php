@@ -50,12 +50,38 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Post Image:</strong>
-                    <input type="file" name="image" class="form-control" placeholder="Post Image" style="opacity: 100%; position:relative;">
+                    <input type="file" name="image" class="form-control"  placeholder="Post Image" style="opacity: 100%; position:relative;">
                 </div>
                 <div class="form-group">
-                    <img src="{{asset('uploads/candidate/'.$candidate->image)}}" height="250" width="250"/>
+                    <img src="{{asset('uploads/candidate/'.$candidate->image)}}"  class="rounded-circle" height="250" width="250"/>
                 </div>
             </div>
+            {{-- <div class="pull-left">
+                <h2>Update Candidate Manifesto!</h2>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Manifesto Description:</strong>
+                    <textarea class="form-control border" style="height:150px" value="{{$menifestos->description}}" name="description" placeholder="Detail"></textarea>
+                </div>
+            </div>
+
+            <div class="col-xs12 col-sm-12 col-md-12">
+                <div class="input-group">
+                    <div class="custom-file">
+                        <strong>Upload Manifesto Videos: </strong>
+                         <input id="file" type="file" name="video">
+                         <div class="container mt-3">
+                            <video width="260" height="220" controls>
+                                <source src="{{asset('uploads/menifesto/'.$menifestos->video)}}" type="video/mp4">
+                                Your browser does not support the video tag.
+                              </video>
+                        </div>
+                    </div>
+                </div>
+            </div> --}}
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Select Post of Candidate:</strong>

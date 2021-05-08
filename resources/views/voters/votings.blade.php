@@ -37,39 +37,53 @@
             </div>
         </div>
     </div>
+    @if(!Auth::user()->voted($positions->id))
 
-@if (count($candidates) == 1)
-    @foreach ($candidates as $candidate)
+        @if (count($candidates) == 1)
+        @foreach ($candidates as $candidate)
         <form action="{{ route('vote.single') }}" method="POST" class="form">
             @csrf
             @method('POST')
+            <input type="hidden" name="position_id" value="{{$positions->id}}">
             <h4> <label class="form-check-label text-dark">{{$candidate->name}}</label></h4><br>
             <img src="{{asset('uploads/candidate/'.$candidate->image)}}" height="100" width="100"/><br><br>
-           <input type="radio" name="option" value="yes"> YES <br>
-            <input type="radio" name="option" value="no"> NO
-            <input type="hidden" name="candidate_id" value="{{$candidate->id}}">
+            <input type="radio" name="option" value="yes" required> YES <br>
+            <input type="radio" name="option" value="no" required> NO
+            <input type="hidden" name="candidate_id" value="{{$candidate->id}}" required>
             <br>
-              <button  type="submit" class="btn submit btn-success">Vote</button>
+            <button  type="submit" class="btn submit btn-success">Vote</button>
         </form>
-    @endforeach
-@else
-    <form action="{{ route('vote.multi') }}" method="POST" class="form">
-        @csrf
-        @method('POST')
-        @foreach ($candidates as $candidate)
+        @endforeach
+        @else
+        <form action="{{ route('vote.multi') }}" method="POST" class="form">
+            @csrf
+            @method('POST')
+            <input type="hidden" name="position_id" value="{{$positions->id}}" required>
+
+            @foreach ($candidates as $candidate)
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="candidate_id" value="{{$candidate->id}}">
+                <input class="form-check-input" type="radio" name="candidate_id" value="{{$candidate->id}}" required>
                 <b><label class="form-check-label text-dark">{{$candidate->name}}</label> ({{$candidate->enrol}})</b>
                 <br><img src="{{asset('uploads/candidate/'.$candidate->image)}}" height="100" width="100"/>
             </div>
             <br>
-        @endforeach
-        {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Vote
-          </button> --}}
-          <button  type="submit" class="btn submit btn-success">Vote</button>
-    </form>        
-@endif
+            @endforeach
+            {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Vote
+            </button> --}}
+            
+            <button  type="submit" class="btn submit btn-success" required>Vote</button>
+        </form>        
+        @endif
+     @else 
+        <div class="card shadow mt-5">
+            <div class="card-body">
+                <div class="card-text">
+                    Already voted!
+                </div>
+            </div>
+        </div>
+     @endif
 
 {{-- <script>
     $(document).ready(function(){

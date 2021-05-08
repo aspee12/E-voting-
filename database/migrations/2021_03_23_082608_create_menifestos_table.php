@@ -19,6 +19,8 @@ class CreateMenifestosTable extends Migration
             $table->string('video');
             $table->string('post');
             $table->string('description');
+            $table->unsignedBigInteger('candidate_id');
+            $table->foreign('candidate_id')->references('id')->on('candidates')->onDelete('cascade');
             $table->timestamps();
         });
     }

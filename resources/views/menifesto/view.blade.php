@@ -30,7 +30,7 @@
                              </div> --}}
                         </h5>
                             <div class="container mt-3">
-                                <video width="520" height="340" controls>
+                                <video width="600" height="340" controls>
                                     <source src="{{asset('uploads/menifesto/'.$menifesto->video)}}" type="video/mp4">
                                     Your browser does not support the video tag.
                                   </video>

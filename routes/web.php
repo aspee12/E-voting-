@@ -12,6 +12,7 @@ use App\Models\Candidate;
 use App\Http\Controllers\ResultController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\MenifestoController;
+use App\Http\Controllers\ResultDeclare;
 
 
 // use App\Http\Controllers\Admin\DashboardController;
@@ -111,4 +112,8 @@ Route::delete('/destroy/{id}','PositionController@destroy');
 
 //voter view mefifesto route
 Route::get('/menifesto','ResultController@menifesto');
+
+//Result Declare route
+Route::post('/declare','ResultDeclareController@make_public');
+
 

@@ -45,6 +45,14 @@
               <p><strong>Home</strong></p>
             </a>
           </li>
+
+          <li>
+            <a href="/role">
+              <i class="fa fa-user"></i>
+              <p><strong>User Profile</strong></p>
+            </a>
+          </li>
+          
           <li>
             <a href="/listcandidate">
               <i class="fa fa-archive"></i>
@@ -64,12 +72,6 @@
             </a>
           </li>
           <li>
-            <a href="/role">
-              <i class="fa fa-user"></i>
-              <p><strong>User Profile</strong></p>
-            </a>
-          </li>
-          <li>
             <a href="/adminresults">
               <i class="fa fa-desktop"></i>
               <p><strong>View Result</strong></p>
@@ -79,7 +81,7 @@
             <li>
               <a href="{{route('menifesto.create')}}">
                 <i class="fa fa-upload"></i>
-                <p><strong>Upload Menifesto</strong></p>
+                <p><strong>Handle Menifesto</strong></p>
               </a>
             </li>
             <li>

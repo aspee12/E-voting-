@@ -10,8 +10,8 @@ class Menifesto extends Model
     use HasFactory;
     protected $table = 'menifestos';
 
-    public function candidates()
+    public function candidate()
     {
-        return $this->hasMany(Candidate::class);
+        return $this->belongsTo(Candidate::class);
     }
 }

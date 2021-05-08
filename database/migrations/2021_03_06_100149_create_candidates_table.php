@@ -21,11 +21,12 @@ class CreateCandidatesTable extends Migration
             $table->text('detail');
             $table->unsignedBigInteger('position_id');
             $table->foreign('position_id')->references('id')->on('positions');
-            $table->foreign('position_id')->references('id')->on('menifestos');
-            $table->integer('vote_count')->default(0);
+            // $table->unsignedBigInteger('menifesto_id');
+            // $table->foreign('menifesto_id')->references('id')->on('menifestos');
+            $table  ->integer('vote_count')->default(0);
             $table->integer('yes_count')->default(0);
             $table->integer('no_count')->default(0);
-            $table->boolean('declare')->default(false);
+            // $table->boolean('declare')->default(false);
             $table->timestamps();
         });
     }
