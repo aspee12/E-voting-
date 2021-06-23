@@ -9,10 +9,14 @@ use App\Http\Controllers\ListCandidateResult;
 use App\Http\Controllers\VoterController;
 use Illuminate\Http\Request;
 use App\Models\Candidate;
+use App\Models\Declareresult;
 use App\Http\Controllers\ResultController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\MenifestoController;
 use App\Http\Controllers\ResultDeclare;
+use App\Http\Controllers\ProfileControlle;
+use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\DeclareresultController;
 
 
 // use App\Http\Controllers\Admin\DashboardController;
@@ -29,6 +33,7 @@ use App\User;
 */
 
 
+// Route::get('/declare','ResultDeclareController@makepublic');
 // welcomePage
 Route::view('/','main');
 // navbar
@@ -67,7 +72,7 @@ Route::group(['middleware'=>['auth','admin']],function(){
     Route::resource('menifesto','MenifestoController');
 
     //Amdim View result Route
-    Route::get('/adminresults','ResultController@adminresult');
+    Route::get('/adminresults','ResultController@adminresult')->name('admin.result');
 });
 
 // Route::resource('posts', PostCRUDController::class);
@@ -113,7 +118,31 @@ Route::delete('/destroy/{id}','PositionController@destroy');
 //voter view mefifesto route
 Route::get('/menifesto','ResultController@menifesto');
 
-//Result Declare route
-Route::post('/declare','ResultDeclareController@make_public');
+//User profile change route
+Route::get('/profile','ProfileController@userprofile');
 
+//Change Password
+Route::get('change-password','ChangePasswordController@index');
+Route::post('change-password','ChangePasswordController@store')->name('change.password');
+Route::get('/decleareresult','DeclareresultController@declarepublic');
+Route::get('/notdecleareresult','DeclareresultController@makeprivate');
 
+Route::post('testroute', function(Request $request) {
+    $candidates = Candidate::all();
+    foreach($candidates as $candidate) {
+        $res = Declareresult::where('candidate_id', $candidate->id)->first();
+        if($res) {
+            $res->state = $request->input($candidate->id);
+            $res->save();
+        }
+        else {
+
+            Declareresult::create([
+                'candidate_id' => $candidate->id,
+                'state' =>  $request->input($candidate->id),
+            ]);
+        }
+        
+    }
+    return back()->with('msg',"Result Declared Successfully");
+});

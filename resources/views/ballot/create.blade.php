@@ -9,7 +9,21 @@
                 <h2>Add New Candidate</h2>
             </div>
         </div>
-    </div>   
+    </div>  
+     {{--Error message  --}}
+    @if ($message = Session::get('msg'))
+    <div id="alert" class="alert bg-danger alert-danger">
+        {{ $message }}
+        <button id="close-btn" type="button" class="border-none btn btn-sm float-right my-auto pt-0">x</button>
+    </div>
+    @endif
+    <script>
+        $(document).ready(function(){
+          $('#close-btn').click(function(){
+            $('#alert').hide();
+          });
+        });
+      </script>
     @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -23,8 +37,8 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <br><br>
-            <div class="float-right">
-                <a class="btn btn-info" href="{{ route('ballot.index') }}"> Back</a>
+            <div class="float-right fa fa-arrow-left">
+                <a class="btn btn-warning" href="{{ route('ballot.index') }}"> Back</a>
             </div>
         </div>
     </div>

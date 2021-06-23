@@ -15,7 +15,7 @@ class CreateResultDeclaresTable extends Migration
     {
         Schema::create('result_declares', function (Blueprint $table) {
             $table->id();
-            $table->boolean('state')->default(0);
+            //$table->boolean('state')->default(0);
             $table->timestamps();
         });
     }

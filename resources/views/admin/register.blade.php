@@ -18,6 +18,12 @@
               <button id="close-btn" type="button" class="border-none btn btn-sm float-right my-auto pt-0">X</button>
           </div>
       @endif
+      @if ($message = Session::get('succ'))
+          <div id="alert" class="alert bg-success alert-success">
+              {{ $message }}
+              <button id="close-btn" type="button" class="border-none btn btn-sm float-right my-auto pt-0">X</button>
+          </div>
+      @endif
       <script>
         $(document).ready(function(){
           $('#close-btn').click(function(){

@@ -21,4 +21,7 @@ class Candidate extends Model
     {
         return $this->hasOne(Menifesto::class);
     }
+    public function declareresult() {
+        return $this->hasOne(Declareresult::class);
+    }
 }

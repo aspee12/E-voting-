@@ -5,7 +5,7 @@
         <div class="col-lg-12 margin-tb">
             <br><br>
             <div class="pull-left">
-                <h2>Menifesto Of the Candidate</h2>
+                <h2>Manifesto Of the Candidate</h2>
             </div>
             <br>
             <hr>

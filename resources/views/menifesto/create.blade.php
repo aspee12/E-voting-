@@ -1,6 +1,6 @@
 @extends('includes.master')
 @section('content')
-<div class="card mx-auto p-4">
+<div class="card mx-auto p-4 ">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <br><br>
@@ -16,14 +16,13 @@
             </div>
             @endif
               <div class="row">
-        <div class="col-lg-12 margin-tb">
+        <div class="col-lg-12 mb-1">
             <br><br>
-            <div class="float-right">
+            <div class="float-right fa fa-arrow-left">
                 <a class="btn btn-info" href="{{ route('ballot.index') }}"> Back</a>
             </div>
         </div>
     </div>
-            <br>
             <hr>
             {{-- <div class="pull-left mb-2">
                 <form action="{{route('menifesto.store')}}" method="POST" enctype="multipart/form-data">
@@ -94,11 +93,11 @@
                             </div>
                     </td>
                     <td>
-                        <h4>
+                        <p>
                             <div class="container mt-3">
                                 {{$menifesto->description}}
                             </div>
-                        </h4>
+                        </p>
                         
                     </td>
                     <td>

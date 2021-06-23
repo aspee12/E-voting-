@@ -8,20 +8,20 @@ use App\Models\ResultDeclare;
 class ResultDeclareController extends Controller
 {
     //
-    public function make_public()
+    public function makepublic()
     {
+        return "test";
+        // $setting = ResultDeclare::findOrCreate(1);
+        // $setting->update('state = 1');
 
-        $setting = ResultDeclare::all();
-        $setting->update('state = 1');
+        // if($setting->update()){
 
-        if($setting->update()){
+        //     return 'decleared';
+        // }
+        // else{
 
-            return 'decleared';
-        }
-        else{
-
-            return 'not delcared';
-        }
+        //     return 'not delcared';
+        // }
     }
 
 }

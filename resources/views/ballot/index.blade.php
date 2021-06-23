@@ -16,6 +16,7 @@
           </div>
       </div>
   </div>
+  
   @if ($message = Session::get('success'))
       <div id="alert" class="alert bg-success alert-success">
           {{ $message }}
@@ -80,10 +81,10 @@
       <tr>
           <td>{{ $candidate->enrol }}</td>
           <td>{{ $candidate->name }}</td>
-          <td><img src="{{asset('uploads/candidate/'.$candidate->image)}}"  class="rounded-circle" height="100" width="100"/></td>
+          <td><img src="{{asset('uploads/candidate/'.$candidate->image)}}" height="100" width="130"/></td>
           <td>{{ $candidate->detail }}</td>
-          <td><b>{{ $candidate->position->candidate_post }}</b>
-            <a href="{{route('menifesto.create')}}">View Manifestos</a>
+          <td><b>{{ $candidate->position->candidate_post }} &ensp;</b>
+            <a href=" {{route('menifesto.create')}}"> View Manifestos</a>
           </td>
           <td>
   

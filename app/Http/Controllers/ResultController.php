@@ -7,13 +7,19 @@ use Illuminate\Support\Facades\Auth;
 use AuthenticatesUsers;
 use App\Models\Menifesto;
 use App\Models\Candidate;
+use App\Models\Declareresult;
 
 class ResultController extends Controller
 {
     public function result(){
         if(Auth::user()->usertype == 'voter'){
-
-            return view('result.voteresult');
+            $declared = Declareresult::where('state', 1)->count();
+            $result = Declareresult::find(1);
+            $candidates = Candidate::all();
+            return view('result.voteresult')
+                    ->with('result',$result)
+                    ->with('candidates',$candidates)
+                    ->with('declared',$declared);
         }
     }
 

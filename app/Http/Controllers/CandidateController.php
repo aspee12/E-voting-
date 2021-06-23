@@ -59,16 +59,6 @@ class CandidateController extends Controller
             'video'=> 'mimes:mp4,mov,ogg,m3u8,avi  | max:200000',
             'description' => 'required',
         ]);
-    
-        // try {
-        //     $_menifesto = Menifesto::findOrFail($request->input('enrol'));
-        // } catch (exception $e) {
-        //     return redirect()->route('ballot.index')
-        // ->with('fail','Candidate already exist.');
-        // }
-        // return redirect()->route('menifesto.create')->with('success','Menifesto Uploaded  Successfully');
-        // Candidate::create($request->all());
-        
         $store = new  Candidate;
         $store->id =  $request->input('enrol');
         $store->enrol = $request->input('enrol');
@@ -77,6 +67,9 @@ class CandidateController extends Controller
         $store->position_id = $request->input('position_id');
         // $store->menifesto_id = $request->input('enrol');
         
+        $user = Candidate::findOrFail($request->enrol);
+        if($user)
+            return redirect()->back()->with('msg', 'User Already Exist');
         
         if($request->hasfile('image')){
             $file = $request->file('image');

@@ -73,8 +73,8 @@
           </li>
           <li>
             <a href="/adminresults">
-              <i class="fa fa-desktop"></i>
-              <p><strong>View Result</strong></p>
+              <i class="fa fa-cog"></i>
+              <p><strong>Result Setting</strong></p>
             </a>
           </li>
           <li>
@@ -84,13 +84,6 @@
                 <p><strong>Handle Menifesto</strong></p>
               </a>
             </li>
-            <li>
-            <a href="/election">
-              <i class="fa fa-cog"></i>
-              <p><strong>Election Setting</strong></p>
-            </a>
-          </li>
-  
         </ul>
       </div>
     </div>
@@ -130,6 +123,8 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{{url('/profile')}}">User Profile</a>
+                  <a class="dropdown-item" href="change-password">Change Password</a>
                     <a class="dropdown-item" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">

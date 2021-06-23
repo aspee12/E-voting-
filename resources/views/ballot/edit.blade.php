@@ -8,8 +8,8 @@
                     <h2 class="mt-5">Edit Candidate</h2>
                 </div>
                 <br><br>
-                <div class="float-right">
-                    <a class="btn btn-info" href="{{ route('ballot.index') }}"> Back</a>
+                <div class="float-right fa fa-arrow-left">
+                    <a class="btn btn-warning " href="{{ route('ballot.index') }}"> Back</a>
                 </div>
             </div>
     </div>

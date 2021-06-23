@@ -14,7 +14,7 @@
 
 <div class="container-fluid">
     <h1 class="heading text-white text-center pt-4">Online Voting</h1>
-    <p class="sub-heading text-center text-white font-weight-bold  py-4">i-vote</p>
+    <p class="sub-heading text-center text-white font-weight-bold  py-4">i-Vote</p>
     <div class="container text-center text-white">
         <div class="row">
             <div class="col-md-7 col-sm-12"></div>
@@ -22,6 +22,7 @@
             <h1>"The ballot is stronger than the bullet"</h1>
             <p>"Democracy is based upon the conviction there are extraordinary possibilities in ordinary people."</p>
             <div class="col-md-5 col-sm-12"></div>
+         
         </div>
     </div>
 
@@ -36,7 +37,7 @@
           {{-- <img class="card-img-top" src="https://images.pexels.com/photos/619419/pexels-photo-619419.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Card image cap"> --}}
           <div class="card-body">
             <h5 class="card-title">The Easiest Way to Election Excellence</h5>
-            <p class="card-text">i-vote ensures election integrity, 
+            <p class="card-text">i-Vote ensures election integrity, 
                 saves serious hours and improves turnout for election voting. 
             </p>
                 <script src="vanilla-tilt.js"></script>
