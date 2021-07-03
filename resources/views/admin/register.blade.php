@@ -13,13 +13,20 @@
         </div>
 
       @if ($message = Session::get('success'))
-          <div id="alert" class="alert bg-success alert-success">
+          <div id="alert" class="alert alert-success" style="background-color: rgb(103, 219, 153)">
               {{ $message }}
               <button id="close-btn" type="button" class="border-none btn btn-sm float-right my-auto pt-0">X</button>
           </div>
       @endif
+      {{-- Message for password change --}}
       @if ($message = Session::get('succ'))
-          <div id="alert" class="alert bg-success alert-success">
+          <div id="alert" class="alert alert-success" style="background-color: rgb(103, 219, 153)">
+              {{ $message }}
+              <button id="close-btn" type="button" class="border-none btn btn-sm float-right my-auto pt-0">X</button>
+          </div>
+      @endif
+      @if ($message = Session::get('del'))
+          <div id="alert" class="alert alert-success" role="alert" style="background-color: rgb(212, 146, 146)">
               {{ $message }}
               <button id="close-btn" type="button" class="border-none btn btn-sm float-right my-auto pt-0">X</button>
           </div>
@@ -50,7 +57,7 @@
       
         <div class="modal-body">
           <input type="hidden" id="delete_user_id">
-          <h4>Are You ure want to delete this Data?</h4>
+          <h4>Are You sure want to delete this Data?</h4>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
@@ -66,7 +73,7 @@
           <div class="table-responsive">
             <table class="table" id="datatable">
               <thead class=" text-primary">
-                <th>Id</th>
+                <th>ID</th>
                 <th>Name</th>
                 <th>Phone</th>
                 <th>Email</th>
@@ -122,7 +129,6 @@
               var data = $tr.children("td").map(function () {
                 return $(this).text();
               }).get();
-
 
               $('#delete_user_id').val(data[0]);
 

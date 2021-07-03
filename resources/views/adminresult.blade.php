@@ -2,7 +2,7 @@
 @section('content')
 <br><br>
     @if ($message = Session::get('msg'))
-    <div id="alert" class="alert mr-4" style="background-color: rgb(224, 171, 171);" >
+    <div id="alert" class="alert mr-4" style="background-color: rgb(160, 224, 146);" >
     {{ $message }}
     <button id="close-btn" type="button" class="border-none btn btn-sm float-right my-auto pt-0">x</button>
 </div>
@@ -21,10 +21,11 @@ $(document).ready(function(){
     <form action="/testroute" method="post" >
     <div class="d-flex">
         @csrf
-    @method('post')    
+    @method('post')  
+    <div class="row">  
     @foreach ($candidates as $candidate)
     <div class="card col-md-3 m-4">
-      <img src="{{asset('uploads/candidate/'.$candidate->image)}}" class="card-img-top my-2" height="220" width="100">
+      <img src="{{asset('uploads/candidate/'.$candidate->image)}}" class="card-img-top my-2" height="220" width="300">
       <div class="card-body">
         <p><strong>Posistion: </strong>{{$candidate->position->candidate_post}}</p>
         <p class="card-title"><strong>ID:</strong> {{$candidate->id}}.</p>
@@ -52,13 +53,13 @@ $(document).ready(function(){
         @endif 
         </div>
             <div class="form-check form-check-inline ml-3 mb-2">
-            <input class="form-check-input" type="radio" name="{{$candidate->id}}" id="{{'private'.$candidate->id}}" value="0" @if($candidate->declareresult->resultState() == 0) checked @endif>
+            <input class="form-check-input" type="radio" name="{{$candidate->id}}" id="{{'private'.$candidate->id}}" value="0" @if($candidate->declareresult != null) @if($candidate->declareresult->resultState() == 0) checked @endif @endif>
             <label class="form-check-label" for="private">
                 Private
             </label>
           </div>
           <div class="form-check form-check-inline ml-3 mb-2">
-            <input class="form-check-input" type="radio" name="{{$candidate->id}}" id="{{'public'.$candidate->id}}" value="1"  @if($candidate->declareresult->resultState() == 1) checked @endif>
+            <input class="form-check-input" type="radio" name="{{$candidate->id}}" id="{{'public'.$candidate->id}}" value="1" @if($candidate->declareresult != null) @if($candidate->declareresult->resultState() == 1) checked @endif @endif>
             <label class="form-check-label" for="public">
                 Public
             </label>
@@ -66,7 +67,8 @@ $(document).ready(function(){
     </div>
     @endforeach
     </div>
-    <button type="submit" class="btn btn-success">submit</button>
+    </div>
+    <button type="submit" class="btn btn-success ml-4">submit</button>
     </form>
 </div>
 

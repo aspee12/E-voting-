@@ -26,16 +26,16 @@ class ChangePasswordController extends Controller
     {
         $request->validate([
             'current_password' =>['required',new MatchOldPassword],
-            'new_password'=>['required', 'string', 'min:8', 'confirmed'],
+            'new_password'=>['required', 'string', 'min:8',],
             'new_confirm_password' => ['same:new_password'],
         ]);
 
         User::find(auth()->user()->id)->update(['password'=>Hash::make($request->new_password)]);
          return redirect('/role') ->with('succ','Password Succefully Update!');
 
-        // if(!(Hash::check($request->get('current_password'),Auth::user()->password))){
-        //     return back()->with('error','Your current password does not match!');
-        // }
+        if(!(Hash::check($request->get('current_password'),Auth::user()->password))){
+            return back()->with('error','Your current password does not match!');
+        }
     }
 
 }

@@ -96,6 +96,6 @@ class PositionController extends Controller
     {
         $position = Position::findOrFail($id);
         $position->delete();
-        return redirect('/create')->with('success','Post of Candidate Successfully Deleted');
+        return redirect('/create')->with('fail','Post of Candidate Successfully Deleted');
     }
 }

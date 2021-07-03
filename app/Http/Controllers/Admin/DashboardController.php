@@ -52,7 +52,7 @@ class DashboardController extends Controller
     public function registerdelete($id){
         $users = User::findOrFail($id);
         $users->delete();
-        return redirect('/role') ->with('success','Deleted Successfully');
+        return redirect('/role')->with('del','Deleted Successfully');
     }
 
     

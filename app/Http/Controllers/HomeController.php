@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\LoginController;
+use App\Models\Menifesto;
 class HomeController extends Controller
 {
     /**
@@ -24,11 +25,13 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('home');
+        return view('userfirstpage');
     }
 
     public function main(){
-        return view('main');
+        // return view('main');
+        $menifestos =Menifesto::all();
+        return view('main')->with('menifestos', $menifestos);
     }
 
 }

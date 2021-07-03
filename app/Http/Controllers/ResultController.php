@@ -29,6 +29,12 @@ class ResultController extends Controller
         return view('menifesto.view')->with('menifestos', $menifestos);
     }
 
+    //home page
+    public function menifestoview(){
+        $menifestos =Menifesto::all();
+        return view('main')->with('menifestos', $menifestos);
+    }
+
     public function adminresult()
     {
         $candidates = Candidate::all();

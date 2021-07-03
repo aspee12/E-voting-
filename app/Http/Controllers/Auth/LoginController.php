@@ -36,10 +36,10 @@ class LoginController extends Controller
         }
        else if(Auth::user()->usertype == 'voter'){
 
-            return 'voterhome';
+            return 'main';
         }
     else{
-        return 'userpage ';
+        return 'userpage';
     }
     }
 

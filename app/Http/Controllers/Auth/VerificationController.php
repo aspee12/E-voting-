@@ -37,14 +37,14 @@ class VerificationController extends Controller
     protected function redirectTo(){
         if(Auth::user()->usertype == 'admin'){
 
-            return 'home';
+            return 'main';
         }
        else if(Auth::user()->usertype == 'voter'){
 
             return 'voterhome';
         }
     else{
-        return 'error';
+        return 'userpage';
     }
     }
 

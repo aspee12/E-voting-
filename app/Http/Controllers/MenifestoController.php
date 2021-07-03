@@ -112,8 +112,8 @@ class MenifestoController extends Controller
             $file -> move('uploads/menifesto/',$filename);
             $menifesto -> video=$filename;
         }
-        $menifesto->save();
-        return redirect()->route('menifesto.create')->with('success','Menifesto Uploaded  Successfully');
+        $menifesto->update();
+        return redirect()->route('menifesto.create')->with('success','Menifesto Updated Successfully');
 
     }
 

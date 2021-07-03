@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <table class="table table-sm table-bordered">
-                            <h4>Candidate List:</h4>
+                            <h4 class="text-center">Candidate List:</h4>
                             <thead>
                             <tr>
                                 <th scope="col">ID.</th>

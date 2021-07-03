@@ -4,8 +4,7 @@
 <div class="card mx-auto p-4">
   <div class="row">
       <div class="col-lg-12 margin-tb">
-          <br><br>
-          <div class="pull-left">
+          <div class="text-center">
               <h2>UPLOAD LIST OF THE CANDIDATE HERE</h2>
           </div>
           <br>
@@ -18,13 +17,13 @@
   </div>
   
   @if ($message = Session::get('success'))
-      <div id="alert" class="alert bg-success alert-success">
+      <div id="alert" class="alert alert-success" style="background-color: rgb(123, 233, 123)">
           {{ $message }}
           <button id="close-btn" type="button" class="border-none btn btn-sm float-right my-auto pt-0">x</button>
       </div>
   @endif
   @if ($message = Session::get('fail'))
-      <div id="alert" class="alert bg-danger alert-danger">
+      <div id="alert" class="alert alert-danger" style="background-color: rosybrown">
           {{ $message }}
           <button id="close-btn" type="button" class="border-none btn btn-sm float-right my-auto pt-0">x</button>
       </div>
@@ -83,7 +82,7 @@
           <td>{{ $candidate->name }}</td>
           <td><img src="{{asset('uploads/candidate/'.$candidate->image)}}" height="100" width="130"/></td>
           <td>{{ $candidate->detail }}</td>
-          <td><b>{{ $candidate->position->candidate_post }} &ensp;</b>
+          <td><b>{{ $candidate->position->candidate_post }} <br></b>
             <a href=" {{route('menifesto.create')}}"> View Manifestos</a>
           </td>
           <td>

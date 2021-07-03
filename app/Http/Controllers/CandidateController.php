@@ -65,12 +65,7 @@ class CandidateController extends Controller
         $store->name = $request->input('name');
         $store->detail = $request->input('detail');
         $store->position_id = $request->input('position_id');
-        // $store->menifesto_id = $request->input('enrol');
-        
-        $user = Candidate::findOrFail($request->enrol);
-        if($user)
-            return redirect()->back()->with('msg', 'User Already Exist');
-        
+        // $store->menifesto_id = $request->input('enrol')
         if($request->hasfile('image')){
             $file = $request->file('image');
             $extension= $file->getClientOriginalExtension();
@@ -103,9 +98,12 @@ class CandidateController extends Controller
             $menifesto->video='';
         }
         // $menifesto->save();
+        // $user = Candidate::findOrFail($request->enrol);
+        // if($user)
+        //     return redirect()->back()->with('msg', 'User Already Exist');
+            
         $menifesto->save();
-        return redirect()->route('ballot.index')
-        ->with('success','Candidate Added successfully.');
+        return redirect()->route('ballot.index')->with('success','Candidate Added successfully.');
     }
     
     /**
@@ -163,6 +161,15 @@ class CandidateController extends Controller
         $file -> move('uploads/candidate/',$filename);
         $store -> image=$filename;
     }
+    if($request->hasfile('video')){
+        $file = $request->file('video');
+        $extension= $file->getClientOriginalExtension();
+        $filename = time(). '.'.$extension;
+        $file -> move('uploads/menifesto/',$filename);
+        $menifesto -> video=$filename;
+    }
+    $menifesto->save();
+    
         $store->enrol = $request->input('enrol');
         $store->name = $request->input('name');
         $store->detail = $request->input('detail');
@@ -170,7 +177,6 @@ class CandidateController extends Controller
         // $store->menifesto_id = $request->input('enrol');
         $store->save();
         // $candidate->update($request->all());
-    
         return redirect()->route('ballot.index')
                         ->with('success','Candidate updated successfully');
     }
@@ -189,7 +195,7 @@ class CandidateController extends Controller
             // $menifesto->delete();
             $candidate->delete();
             return redirect()->route('ballot.index')
-                            ->with('success','Candidate deleted successfully');
+                            ->with('succ','Candidate deleted successfully');
         }
     }
 }

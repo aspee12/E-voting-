@@ -1,4 +1,4 @@
-<footer>
+{{-- <footer>
     <div class="main-content text-white">
       <div class="left box">
         <h2>About us</h2>
@@ -59,4 +59,41 @@
   </footer>
 </div>
 </div>
+</footer>
+ --}}
+
+{{-- NewFooter --}}
+<footer class="page-footer dark">
+  <div class="container">
+      <div class="row" style="/*align-items: center;*/">
+          <div class="col-sm-4" style="align-items: center;">
+              <h5>Get started</h5>
+              <ul>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/login">Sign up</a></li>
+              </ul>
+          </div>
+          <div class="col-sm-4">
+              <h5>Help</h5>
+              <ul>
+                  <li><a href="/About">About Us</a></li>
+                  <li><a href="/contact">Contact Us</a></li>
+              </ul>
+          </div>
+          <div class="col-sm-4">
+              <h5>Address</h5>
+              <ul>
+                  <li><a href="#">Mongar, Gyalpozhing</a></li>
+                  <li><a href="#">17270712/17685836</a></li>
+                  <li><a href="#">sj17270712@gmail.com\<br>&nbsp;i-vote@gmail.com&nbsp;&nbsp;<br><br></a></li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  <div class="clean-block add-on social-icons">
+      <div class="icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-instagram"></i></a><a href="#"><i class="fa fa-twitter"></i></a></div>
+  </div>
+  <div class="footer-copyright">
+      <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;© 2021 i-vote Copyright reserved.</p>
+  </div>
 </footer>

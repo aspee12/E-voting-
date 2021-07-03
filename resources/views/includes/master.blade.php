@@ -23,6 +23,7 @@
 
 <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </head>
@@ -30,55 +31,54 @@
 <body class="">
   <div class="wrapper ">
 
-    <div class="sidebar" data-color="gray"> <!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"-->
+    <div class="sidebar" data-color="orange" style="background-color: rgb(196, 102, 102)"> <!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"-->
       <div class="logo">
-        
         <a href="/" src="/img/logo.png" class="simple-text logo-normal">
           <img class="sidebar-logo ml-4" src="/img/logo.png" width="150" height="65" alt="Card image cap">
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li>
+          <li class="{{ 'main' == request()->path() ? 'active' : ''}}">
             <a href="/main">
               <i class="fa fa-home"></i>
               <p><strong>Home</strong></p>
             </a>
           </li>
-
-          <li>
+      
+          <li class="{{ 'role' == request()->path() ? 'active' : ''}}">
             <a href="/role">
               <i class="fa fa-user"></i>
-              <p><strong>User Profile</strong></p>
+              <p><strong>Users Details</strong></p>
             </a>
           </li>
-          
-          <li>
-            <a href="/listcandidate">
-              <i class="fa fa-archive"></i>
-              <p><strong>Dashboard</strong></p>
-            </a>
-          </li>
-          <li>
+          <li class="{{ 'create' == request()->path() ? 'active' : ''}}">
             <a href="/create">
               <i class="fa fa-users"></i>
               <p><strong>Add Candidate Position</strong></p>
             </a>
           </li>
-          <li>
+
+          <li class="{{ 'ballot' == request()->path() ? 'active' : ''}}">
             <a href="/ballot">
               <i class="fa fa-envelope"></i>
               <p><strong>Create Election</strong></p>
             </a>
           </li>
-          <li>
+          <li class="{{ 'listcandidate' == request()->path() ? 'active' : ''}}">
+            <a href="/listcandidate">
+              <i class="fa fa-desktop"></i>
+              <p><strong>Candidate List</strong></p>
+            </a>
+          </li>
+          <li class="{{ 'adminresults' == request()->path() ? 'active' : ''}}">
             <a href="/adminresults">
               <i class="fa fa-cog"></i>
               <p><strong>Result Setting</strong></p>
             </a>
           </li>
           <li>
-            <li>
+            <li class="{{ 'menifesto/create' == request()->path() ? 'active' : ''}}">
               <a href="{{route('menifesto.create')}}">
                 <i class="fa fa-upload"></i>
                 <p><strong>Handle Menifesto</strong></p>
@@ -94,34 +94,18 @@
         <div class="container-fluid">
           <div class="navbar-wrapper">
             
-            <a class="navbar-brand" href="#pablo">Admin Dashboard</a>
+            <a class="navbar-brand" href="#pablo"><h4>Admin Dashboard</h4></a>
           </div>
         
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            {{-- <form>
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <i class="now-ui-icons ui-1_zoom-bold"></i>
-                  </div>
-                </div>
-              </div>
-            </form> --}}
+           
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="now-ui-icons media-2_sound-wave"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Stats</span>
-                  </p>
-                </a>
-              </li>
               <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }}
+               
+                <a id="navbarDropdown" class="nav-link dropdown-toggle text-dark" style="font-size: 17px" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                   {{ Auth::user()->name }} &nbsp;
+                    <img src="{{asset('uploads/userprofile/'.Auth::user()->profile)}}" style="border: 2px solid rgb(25, 197, 40); border-radius: 50%; width: 41px; height:40px;" onerror="this.src='/img/default.jpg'">
                 </a>
-
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="{{url('/profile')}}">User Profile</a>
                   <a class="dropdown-item" href="change-password">Change Password</a>
@@ -138,8 +122,7 @@
             </li>
               <li class="nav-item">
                 <a class="nav-link" href="">
-                  <i class="now-ui-icons users_single-02"></i>
-                  <p>
+                    <p>
                     <span class="d-lg-none d-md-block">Account</span>
                   </p>
                 </a>
@@ -149,7 +132,7 @@
         </div>
       </nav>
       <!-- End Navbar -->
-      <div class="panel-header panel-header-sm ">
+      <div class="panel-header-sm " style="opacity:2; background-color:rgb(248, 207, 73)">
       </div>
 
       <div class="content">
@@ -163,12 +146,12 @@
           <nav>
             <ul>
               <li>
-                <a href="https://www.creative-tim.com">
+                <a href="/">
                   i-Vote
                 </a>
               </li>
               <li>
-                <a href="http://presentation.creative-tim.com">
+                <a href="/About">
                   About Us
                 </a>
               </li>

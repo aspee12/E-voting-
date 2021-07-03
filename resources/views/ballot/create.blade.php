@@ -4,8 +4,7 @@
     <div class="row">
         <br><br>
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <br><br>
+            <div class="text-center">
                 <h2>Add New Candidate</h2>
             </div>
         </div>
@@ -35,16 +34,14 @@
         </div>
     @endif
     <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <br><br>
-            <div class="float-right fa fa-arrow-left">
-                <a class="btn btn-warning" href="{{ route('ballot.index') }}"> Back</a>
+        <div class="col-lg-12 mb-1">
+            <div class="float-left fa fa-arrow-left">
+                <a class="btn btn-outline-dark" href="{{ route('ballot.index') }}"> Back</a>
             </div>
         </div>
     </div>
     <form action="{{ route('ballot.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-      
          <div class="row mx-auto d-flex" style="width: 50rem;">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">

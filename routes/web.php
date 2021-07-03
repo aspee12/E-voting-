@@ -19,6 +19,7 @@ use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\DeclareresultController;
 
 
+
 // use App\Http\Controllers\Admin\DashboardController;
 use App\User;
 /*
@@ -35,7 +36,8 @@ use App\User;
 
 // Route::get('/declare','ResultDeclareController@makepublic');
 // welcomePage
-Route::view('/','main');
+
+Route::get('/','ResultController@menifestoview');
 // navbar
 Route::view('/candidate', 'Navbarpages.candidate');
 Route::view('/functionality','Navbarpages.functionality');
@@ -55,48 +57,33 @@ Route::get('/main', [HomeController::class, 'main'])->name('main');
 
 // after auth admin dashboard route
 Route::group(['middleware'=>['auth','admin']],function(){
-    // Route::get('/dashboard',function(){
-    //     return view('admin.dashboard');
-    // });
-// admin route CRUD0
+    // admin route CRUD0
     Route::get('/role','Admin\DashboardController@registered');
     Route::get('/admin/edit/{id}','Admin\DashboardController@registeredit')->name('admin.edit');
     Route::put('/register-update/{id}','Admin\DashboardController@registerupdate');
     // Route::put('/admin-update/{id}','Admin\DashboardController@adminupdate');
-    Route::delete('/delete/{id}','Admin\DashboardController@registerdelete');
-//ballot route for admin
+    Route::delete('/delete/{id}','Admin\DashboardController@registerdelete')->name('admin.delete');
+    //ballot route for admin
     Route::resource('ballot','CandidateController');
-//home for the admin routing
+    //home for the admin routing
     Route::get('/listcandidate','ListCandidateResult@display');
     //Admin Menifesto upload route
     Route::resource('menifesto','MenifestoController');
-
     //Amdim View result Route
     Route::get('/adminresults','ResultController@adminresult')->name('admin.result');
+    //admin register route
+    Route::get("admin", [AdminRegisterController::class, 'create']);
+    Route::post("user/create", [AdminRegisterController::class, 'store']);
+
 });
-
-// Route::resource('posts', PostCRUDController::class);
-
-//admin register route
-
-Route::get("admin", [AdminRegisterController::class, 'create']);
-Route::post("user/create", [AdminRegisterController::class, 'store']);
-
-
 
 //Voter route
 
 Route::view('/voterdash','voters.voter');
-//User route when they are not given role
-Route::view('/userpage','userfirstpage');
 //User not valide by Administator route
-Route::view('/error', 'erromesg');
 
 // Live route
 Route::view('/election', 'live');
-
-//home route for the voter
-Route::get('/voterhome','ListCandidateResult@voterdisplay');
 
 // Voter Voting page route
 Route::get('/votting','VoterController@voting')->name('succ.vote');
@@ -115,11 +102,14 @@ Route::get('/edit/{id}','PositionController@edit');
 Route::put('/update/{id}','PositionController@update');
 Route::delete('/destroy/{id}','PositionController@destroy');
 
+//Login route for user not verified
+
+
 //voter view mefifesto route
 Route::get('/menifesto','ResultController@menifesto');
 
 //User profile change route
-Route::get('/profile','ProfileController@userprofile');
+Route::get('/profile','ProfileController@userprofile')->name('profile');
 
 //Change Password
 Route::get('change-password','ChangePasswordController@index');
@@ -146,3 +136,25 @@ Route::post('testroute', function(Request $request) {
     }
     return back()->with('msg',"Result Declared Successfully");
 });
+
+//upload profile route
+Route::get('/profileset/{id}','ProfileController@display')->name('profileset');
+Route::post('/uploadprofle/{id}','ProfileController@upload')->name('uploadprofle');
+
+//Contact us route
+Route::get('/contact','ContactController@contact');
+Route::post('/sendmail','ContactController@sendMail')->name('sendmail');
+
+
+Route::group(['middleware'=>['auth','voter']],function(){
+    //home route for the voter
+});
+Route::get('/voterhome','ListCandidateResult@voterdisplay');
+
+//Route::view('/loggin','auth.login');
+
+
+//Route::view('/error', 'erromesg');
+
+//User route when they are not given role
+Route::view('/userpage','userfirstpage');
