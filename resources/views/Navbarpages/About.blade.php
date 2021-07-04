@@ -34,7 +34,7 @@
                                 <p class="card-text">"i-Vote is the result of frustrations running elections for student groups, associations and not for profit organizations."
                                 </p>
                                 <i>(Bachelor in Computer Application).</i>
-                                <div class="icons"><a href="https://www.facebook.com/"><i class="icon-social-facebook"></i></a><a href="https://www.instagram.com/"><i class="icon-social-instagram"></i></a><a href="https://twitter.com/"><i class="icon-social-twitter"></i></a></div>
+                                <div class="icons"><a href="https://www.facebook.com/"><i class="icon-social-facebook"></i></a><a href="https://www.instagram.com/"><i class="icon-social-instagram"></i></a><a href=""><i class="icon-social-twitter"></i></a></div>
                             </div>
                         </div>
                     </div>
@@ -44,17 +44,17 @@
                                 <h4 class="card-title">Tashi Wangmo</h4>
                                 <p class="card-text">"We spent many hours tallying paper ballots and kludgy spreadsheets or scripts to tally and share results. We knew we could do better."</p>
                                 <i>(Bachelor in Computer Application).</i>
-                                <div class="icons"><a href="https://www.facebook.com/"><i class="icon-social-facebook"></i></a><a href="https://www.instagram.com/"><i class="icon-social-instagram"></i></a><a href="https://twitter.com/"><i class="icon-social-twitter"></i></a></div>
+                                <div class="icons"><a href="https://www.facebook.com/"><i class="icon-social-facebook"></i></a><a href="https://www.instagram.com/"><i class="icon-social-instagram"></i></a><a href=""><i class="icon-social-twitter"></i></a></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-lg-3 offset-sm-0" style="/*width: 25%;*//*border-radius: 50%;*/">
-                        <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/a3.jpg">
+                        <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/avatars/12180046.JPG" style="height: 205px;">
                             <div class="card-body info">
                                 <h4 class="card-title">Sonam Jamtsho</h4>
                                 <p class="card-text">"With our online election system, we strive to provide an election platform that allows both small volunteer groups and large associations to run a secure."</p>
                                 <i>(Bachelor in Computer Application).</i>
-                                <div class="icons"><a href="https://www.facebook.com/"><i class="icon-social-facebook"></i></a><a href="https://www.instagram.com/"><i class="icon-social-instagram"></i></a><a href="https://twitter.com/"><i class="icon-social-twitter"></i></a></div>
+                                <div class="icons"><a href="https://www.facebook.com/"><i class="icon-social-facebook"></i></a><a href="https://www.instagram.com/"><i class="icon-social-instagram"></i></a><a href=""><i class="icon-social-twitter"></i></a></div>
                             </div>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                                 <h4 class="card-title">Tenzin Lhamo</h4>
                                 <p class="card-text">"We build simple elegant technology solutions to real world. And we are always looking to improve our i-Vote online voting tool".</p>
                                  <i>(Bachelor in Computer Application).</i>
-                                <div class="icons"><a href="https://www.facebook.com/"><i class="icon-social-facebook"></i></a><a href="https://www.instagram.com/"><i class="icon-social-instagram"></i></a><a href="https://twitter.com/"><i class="icon-social-twitter"></i></a></div>
+                                <div class="icons"><a href="https://www.facebook.com/"><i class="icon-social-facebook"></i></a><a href="https://www.instagram.com/"><i class="icon-social-instagram"></i></a><a href=""><i class="icon-social-twitter"></i></a></div>
                             </div>
                         </div>
                     </div>
